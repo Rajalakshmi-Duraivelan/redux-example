@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './App.css';
+import { actionCreators } from './Redux/ReduxActions/actionCreators';
 
 function App() {
+  const reduxStates=useSelector((state)=>state)
+  const dispatch = useDispatch();
+  //binding all action creators
+  const {purchaseProduct, restoreProduct} = bindActionCreators(actionCreators,dispatch)
+  
+  console.log(reduxStates)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
